@@ -1,16 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+// ...omitted
+import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+ declarations: [
+   AppComponent,
+ ],
+ imports: [
+   // ...omitted
+   AngularFireModule.initializeApp(firebaseConfig),
+   AgmCoreModule.forRoot({
+     apiKey: environment.googleMapsKey
+   })
+ ],
+ bootstrap: [
+   AppComponent
+ ],
 })
 export class AppModule { }
